@@ -18,10 +18,9 @@
 
     <h2>Iniciar Sorteio</h2>
     <button onclick="iniciarSorteio()">Sortear</button>
-
     <h3>Resultado:</h3>
     <p id="resultado"></p>
-
+    
     <script>
         function iniciarSorteio() {
             fetch('/sorteio')
@@ -32,6 +31,5 @@
             .catch(error => console.error("Erro ao sortear:", error));
         }
     </script>    
-      
 </body>
 </html>

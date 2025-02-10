@@ -1,20 +1,16 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+import os
 import psycopg2
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import random
-from collections import defaultdict
 
 app = Flask(__name__)
 
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
 # Função para conectar ao PostgreSQL
 def get_db_connection():
-    return psycopg2.connect(
-        dbname="sorteio_db_utf8",
-        user="postgres",
-        password="novaSenha123",
-        host="localhost",
-        port="5432",
-        options="-c client_encoding=UTF8"
-    )
+    return psycopg2.connect(DATABASE_URL, sslmode ="require")
+        
 
 
 
